@@ -1,0 +1,1716 @@
+div.sheet-main{
+    text-align: center;
+    background-color: #fdfdfd;
+}
+/*
+ TABS
+ https://wiki.roll20.net/CSS_Wizardry#Tabs
+ */
+.sheet-tab-buttons {
+    margin: auto;
+}
+
+/*this hides the contents of each tab by default*/
+div[class^="sheet-section"] {
+    display: none;
+}
+
+/*this shows the tab content when the appropriate input field is selected*/
+input[type=radio].sheet-tab1:checked ~ div.sheet-section-character,
+input[type=radio].sheet-tab2:checked ~ div.sheet-section-character-notes,
+input[type=radio].sheet-tab3:checked ~ div.sheet-section-character-creation
+{
+    display: block;
+}
+
+/* this hides the radio button for each tab, makes it 100px wide and 40px tall and makes sure it's above everything else */
+input[type=radio].sheet-tab {
+    width: 120px;
+    height: 40px;
+    cursor: pointer;
+    position: relative;
+    opacity: 0;
+    z-index: 9999;
+    vertical-align: baseline;
+}
+
+/*this styles the span with the tab information and slides to the left, so it appears underneath the radio button*/
+span.sheet-tab  {
+    text-align: center;
+    display: inline-block;
+    font-size: 15px;
+    background: white;
+    color: #1a1a1a;
+    border: solid 2px black;
+    font-weight: bold;
+    border-radius: 4px;
+    width: 120px;
+    height: 40px;
+    cursor: pointer;
+    position: relative;
+    vertical-align: middle;
+    margin-left: -125px;
+    margin-top: -33px;
+}
+
+/*this modifies the span color once the radio button is selected so you know which tab is selected*/
+input.sheet-tab1:checked + span.sheet-tab1,
+input.sheet-tab2:checked + span.sheet-tab2,
+input.sheet-tab3:checked + span.sheet-tab3
+{
+    background: black;
+    color: white;
+    border-radius: 4px;
+}
+
+/* CHARACTER SHEET */
+.sheet-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:center;
+    min-width:800px;
+    margin: 10px auto 0px auto;
+    padding:0px;
+    text-align: left;
+}
+
+.sheet-break {
+    flex-basis: 100%;
+    text-align: center;
+}
+
+
+.sheet-character-row-item {
+    padding: 5px;
+    width: 245px;
+}
+
+.sheet-character-row-item label {
+    display: inline-block;
+    width: 40%;
+    margin: 3px 0px 0px 0px;
+    text-transform: uppercase;
+    font-size: 15px;
+}
+
+.sheet-character-row-item input {
+    display: inline-block;
+    width: 130px;
+    margin: 3px 0px 0px 0px
+}
+
+
+.sheet-logo {
+    width: 290px;
+    padding: 0px;
+}
+
+select.sheet-character-gender {
+    display: inline-block;
+    width: 130px;
+    margin: 3px 0 0 0;
+    height: 28px;
+    box-sizing: border-box;
+    position: relative;
+    left: -4px;
+}
+
+.sheet-virtutes,
+.sheet-peritiae {
+    margin: 0 0 20px 0;
+}
+
+.sheet-virtutes input[type=number]{
+    border:none;
+    margin:0;
+    width: 24px;
+    font-size: 20px;
+    height: 25px;
+}
+
+.sheet-virtutes input:focus {
+    outline-width: 0;
+}
+
+.sheet-virtutes > .sheet-boxed div {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    padding: 0;
+    border-radius: 50%;
+    border: 1px solid black;
+    margin-left: -15px;
+}
+
+.sheet-virtutes .sheet-boxed input[type=number] {
+    width: 42px !important;
+    min-width: 42px !important;
+    max-width: 42px !important;
+    border: none;
+    background: transparent;
+    height: 24px;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    box-sizing: border-box;
+    position: relative;
+    left: 7px !important;
+}
+
+.sheet-virtutes label{
+    margin:0;
+    width: 60%;
+    font-size: 15px;
+}
+
+.sheet-virtutes >.sheet-boxed {
+    border: 1px solid black;
+    padding: 3px;
+    margin: 3px;
+}
+
+.sheet-peritiae label {
+    width: 145px;
+    font-size: 15px;
+}
+
+.sheet-peritiae input{
+    margin: 0 0 5px 0;
+}
+
+.sheet-peritiae input[type=text]{
+    width: 155px;
+}
+
+.sheet-peritiae input[type=number]{
+    margin-left: 5px;
+    width: 50px;
+}
+
+.sheet-peritiae input[type=checkbox] {
+    margin-left: 5px;
+    width: 20px;
+}
+
+.sheet-peritiae input[type=number].sheet-character-peritia {
+    width: 50px;
+    height: 30px;
+    font-size: 20px;
+}
+
+.sheet-peritiae .sheet-boxed {
+    display: inline-block;
+    border: 1px solid black;
+    padding: 3px;
+    margin: 3px;
+    width: 50px;
+}
+
+.sheet-hp td {
+    text-align: center;
+    border: 1px solid black
+
+}
+
+.sheet-hp table {
+    border: 1px solid black;
+    width: 245px;
+    text-align: center;
+}
+
+.sheet-hp input[type=checkbox] {
+    display: inline-block;
+    width: 16px;
+    margin: 3px 0 0 0;
+}
+
+.sheet-hp label {
+    width:100%;
+    font-size: 15px;
+}
+
+.sheet-hp div.sheet-max-hit-points {
+    margin-top: 10px;
+    margin-bottom: 12px;
+}
+
+.sheet-hp div.sheet-max-hit-points label {
+    width: 20%;
+    font-size:12px;
+}
+
+.sheet-hp div.sheet-max-hit-points input {
+    width: 60px;
+}
+
+.sheet-pietas input[type=number] {
+    width: 60px;
+    height: 30px;
+    font-size: 20px;
+    margin-left: 0px;
+}
+
+.sheet-multipliers table {
+    border: 1px solid black;
+    width: 245px;
+    text-align: center;
+}
+
+.sheet-combat label {
+    margin-top: 20px;
+    width:auto;
+    font-size: 15px;
+}
+
+.sheet-combat table.sheet-weapons {
+    width: 500px;
+    table-layout: auto;
+}
+
+.sheet-combat table.sheet-weapons td {
+    white-space: nowrap;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+select.sheet-weapon-select,
+select.sheet-armor-select,
+select.sheet-shield-select{
+    width: 140px;
+    height: 28px;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.sheet-combat table.sheet-weapons input.sheet-weapon-short {
+    width: 40px;
+    height: 28px;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.sheet-combat table.sheet-weapons input[type="checkbox"] {
+    width: 20px;
+    margin: 0;
+}
+
+input.sheet-tempered-state[value="warning"] + input.sheet-tempered-checkbox {
+    outline: 2px solid #d6b656;
+}
+
+input.sheet-tempered-state[value="error"] + input.sheet-tempered-checkbox {
+    outline: 2px solid #cc4444;
+}
+
+input.sheet-reinforced-armor-state[value="warning"] + input.sheet-reinforced-armor-checkbox {
+    outline: 2px solid #d6b656;
+}
+
+input.sheet-reinforced-armor-state[value="error"] + input.sheet-reinforced-armor-checkbox {
+    outline: 2px solid #cc4444;
+}
+
+input.sheet-combat-skill {
+    width: 220px;
+}
+
+tr.sheet-odd-row {
+    background-color: #e2ded9;
+}
+
+.sheet-divine-protection label{
+    width: auto;
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+.sheet-divine-protection input{
+    width: 220px;
+}
+
+/* CHARACTER NOTES SHEET */
+.sheet-character-notes-row-item {
+    padding: 5px;
+    width: 385px;
+}
+
+.sheet-section-character-notes h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: normal;
+}
+
+.sheet-character-notes-row-item textarea {
+    width: 100%;
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+.sheet-notes{
+    width: 360px;
+    height:220px;
+}
+/* CURRICULUM / EXPERIENCE TABLE */
+
+.sheet-section-character-notes table.sheet-exp {
+    width: 380px;
+    text-align: center;
+    table-layout: fixed;
+}
+
+.sheet-section-character-notes table.sheet-exp th {
+    font-weight: normal;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 2px 3px;
+}
+
+.sheet-section-character-notes table.sheet-exp td {
+    padding: 2px 3px;
+    vertical-align: middle;
+}
+
+.sheet-section-character-notes table.sheet-exp th:nth-child(1),
+.sheet-section-character-notes table.sheet-exp td:nth-child(1) {
+    width: 125px;
+    text-align: left;
+}
+
+.sheet-section-character-notes table.sheet-exp th:nth-child(2),
+.sheet-section-character-notes table.sheet-exp td:nth-child(2) {
+    width: 95px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.sheet-section-character-notes table.sheet-exp th:nth-child(3),
+.sheet-section-character-notes table.sheet-exp td:nth-child(3),
+.sheet-section-character-notes table.sheet-exp th:nth-child(4),
+.sheet-section-character-notes table.sheet-exp td:nth-child(4) {
+    width: 55px;
+    text-align: center;
+}
+
+.sheet-section-character-notes input.sheet-exp-multiplier {
+    width: 38px;
+    height: 28px;
+    margin: 0;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.sheet-section-character-notes input.sheet-exp,
+.sheet-section-character-notes input.sheet-exp-left {
+    width: 48px;
+    height: 28px;
+    margin: 0;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* remove number input arrows */
+.sheet-section-character-notes input.sheet-exp-multiplier,
+.sheet-section-character-notes input.sheet-exp,
+.sheet-section-character-notes input.sheet-exp-left {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.sheet-section-character-notes input.sheet-exp-multiplier::-webkit-inner-spin-button,
+.sheet-section-character-notes input.sheet-exp-multiplier::-webkit-outer-spin-button,
+.sheet-section-character-notes input.sheet-exp::-webkit-inner-spin-button,
+.sheet-section-character-notes input.sheet-exp::-webkit-outer-spin-button,
+.sheet-section-character-notes input.sheet-exp-left::-webkit-inner-spin-button,
+.sheet-section-character-notes input.sheet-exp-left::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* CHARACTER CREATION */
+.sheet-section-character-creation {
+    background-image: url("https://steamuserimages-a.akamaihd.net/ugc/51331078603079596/26D242E650DC75D1632796A9F19A0CF4D3471CF8/"); /* fixed missing image */
+    width:662px;
+    height:934px;
+    position:relative;
+    margin: 10px auto 0px auto;
+}
+
+.sheet-section-character-creation input{
+    position:absolute;
+    width: 30px;
+    height: 30px;
+    margin: 0px;
+    text-align: center;
+    border: 1px solid #aaaaaa;
+}
+
+input.sheet-initial-values{
+    top: 140px;
+}
+
+input.sheet-initial-values.sheet-initial-values-1 {
+    left: 158px;
+}
+
+input.sheet-initial-values.sheet-initial-values-2 {
+    left: 221px;
+}
+
+input.sheet-initial-values.sheet-initial-values-3 {
+    left: 283px;
+}
+
+input.sheet-initial-values.sheet-initial-values-4 {
+    left: 348px;
+}
+
+input.sheet-initial-values.sheet-initial-values-5 {
+    left: 412px;
+}
+
+input.sheet-initial-values.sheet-initial-values-6 {
+    left: 476px;
+}
+
+input.sheet-assign-initial-state[value="error"] + select.sheet-initial-assignment {
+    background: #ffb3b3 !important;
+    border: 2px solid #cc4444 !important;
+    color: #1a1a1a !important;
+}
+
+input.sheet-sensibilitas {
+    top: 257px;
+    left: 315px;
+}
+
+input.sheet-coordinatio {
+    top: 400px;
+    left: 170px;
+}
+
+input.sheet-ingenium {
+    top: 400px;
+    left: 460px;
+}
+
+input.sheet-vigor {
+    top: 545px;
+    left: 170px;
+}
+
+input.sheet-ratio {
+    top: 545px;
+    left: 460px;
+}
+
+input.sheet-virtus {
+    width: 26px;
+    height: 26px;
+}
+
+input.sheet-auctoritas {
+    top: 687px;
+    left: 315px;
+}
+
+input.sheet-de-natura {
+    top: 331px;
+    left: 245px;
+}
+
+input.sheet-de-magia {
+    top: 333px;
+    left: 389px;
+}
+
+input.sheet-de-corpore {
+    top: 477px;
+    left: 102px;
+}
+
+input.sheet-de-scientia {
+    top: 477px;
+    left: 533px;
+}
+
+input.sheet-de-bello {
+    top: 621px;
+    left: 245px;
+}
+
+input.sheet-de-societate {
+    top: 623px;
+    left: 389px;
+}
+
+input.sheet-modifiers {
+    width: 30px;
+    height: 20px;
+}
+
+input.sheet-sensibilitas-mod-1 {
+    top: 254px;
+    left: 244px;
+}
+
+input.sheet-sensibilitas-mod-2 {
+    top: 254px;
+    left: 388px;
+}
+
+input.sheet-coordinatio-mod-1 {
+    top: 320px;
+    left: 172px;
+}
+
+input.sheet-coordinatio-mod-2 {
+    top: 395px;
+    left: 102px;
+}
+
+input.sheet-ingenium-mod-1 {
+    top: 320px;
+    left: 460px;
+}
+
+input.sheet-ingenium-mod-2 {
+    top: 394px;
+    left: 531px;
+}
+
+input.sheet-vigor-mod-1 {
+    top: 542px;
+    left: 101px;
+}
+
+input.sheet-vigor-mod-2 {
+    top: 615px;
+    left: 171px;
+}
+
+input.sheet-ratio-mod-1 {
+    top: 542px;
+    left: 530px;
+}
+
+input.sheet-ratio-mod-2 {
+    top: 612px;
+    left: 460px;
+}
+
+input.sheet-auctoritas-mod-1 {
+    top: 682px;
+    left: 244px;
+}
+
+input.sheet-auctoritas-mod-2 {
+    top: 682px;
+    left: 388px;
+}
+
+input.sheet-province-modifiers {
+    width: 25px;
+    height: 18px;
+}
+
+input.sheet-province-mod-de-natura {
+    top: 399px;
+    left: 287px;
+}
+
+input.sheet-province-mod-de-magia {
+    top: 399px;
+    left: 349px;
+}
+
+input.sheet-province-mod-de-corpore {
+    top: 468px;
+    left: 190px;
+}
+
+input.sheet-province-mod-de-scientia {
+    top: 468px;
+    left: 446px;
+}
+
+input.sheet-province-mod-de-bello {
+    top: 536px;
+    left: 287px;
+}
+
+input.sheet-province-mod-de-societate {
+    top: 536px;
+    left: 349px;
+}
+
+input.sheet-age {
+    top: 786px;
+    left: 88px;
+}
+
+input.sheet-age-mod-vigor {
+    top: 786px;
+    left: 156px;
+}
+
+input.sheet-age-mod-coordinatio {
+    top: 786px;
+    left: 235px;
+}
+
+input.sheet-age-mod-ingenium {
+    top: 786px;
+    left: 314px;
+}
+
+input.sheet-age-mod-auctoritas {
+    top: 786px;
+    left: 393px;
+}
+
+input.sheet-age-mod-ratio {
+    top: 786px;
+    left: 471px;
+}
+
+input.sheet-age-mod-sensibilitas {
+    top: 786px;
+    left: 550px;
+}
+
+input.sheet-final-vigor {
+    top: 857px;
+    left: 152px;
+}
+
+input.sheet-final-coordinatio {
+    top: 857px;
+    left: 231px;
+}
+
+input.sheet-final-ingenium {
+    top: 857px;
+    left: 310px;
+}
+
+input.sheet-final-auctoritas {
+    top: 857px;
+    left: 389px;
+}
+
+input.sheet-final-ratio {
+    top: 857px;
+    left: 466px;
+}
+
+input.sheet-final-sensibilitas {
+    top: 857px;
+    left: 545px;
+}
+
+
+button.sheet-generate-initial-values {
+    position: absolute;
+    /*top: 137px; */
+    top:118px;
+    left: 95px;
+    width: 40px;
+    height: 32px;
+    padding: 0;
+    border: 1px solid #333333;
+    border-radius: 4px;
+    background: #e2ded9;
+    color: #1a1a1a;
+    font-weight: bold;
+    font-size: 11px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+button.sheet-generate-initial-values:hover {
+    background: #d5cec6;
+}
+
+input.sheet-initial-values-last-roll {
+    position: absolute;
+    top: 98px;
+    left: 440px;
+    width: 135px;
+    height: 24px;
+    font-size: 10px;
+    color: #333333;
+    background: #ffffff;
+}
+
+input.sheet-initial-values[readonly] {
+    background: #ffffff;
+    cursor: default;
+}
+
+
+/* INITIAL VALUE ASSIGNMENT UNDER INITIAL VALUES */
+select.sheet-initial-assignment {
+    position: absolute;
+    top: 184px;
+    width: 42px;
+    height: 24px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    border: 1px solid #333333;
+    border-radius: 4px;
+    background: #e2ded9;
+    color: #1a1a1a;
+    font-size: 9px;
+    font-weight: bold;
+    z-index: 100;
+}
+
+select.sheet-initial-assignment-1 { left: 152px; }
+select.sheet-initial-assignment-2 { left: 215px; }
+select.sheet-initial-assignment-3 { left: 277px; }
+select.sheet-initial-assignment-4 { left: 342px; }
+select.sheet-initial-assignment-5 { left: 406px; }
+select.sheet-initial-assignment-6 { left: 470px; }
+
+select.sheet-province {
+    position: absolute;
+    top: 478px;
+    left: 272px;
+    width: 115px;
+    height: 24px;
+    line-height: 24px;
+    padding: 0 2px;
+    font-size: 11px;
+    box-sizing: border-box;
+    text-align: center;
+    text-align-last: center;
+}
+
+
+/* AGE MODIFIERS AND FINAL VIRTUTES */
+input.sheet-age-mod-vigor,
+input.sheet-age-mod-coordinatio,
+input.sheet-age-mod-ingenium,
+input.sheet-age-mod-auctoritas,
+input.sheet-age-mod-ratio,
+input.sheet-age-mod-sensibilitas,
+input.sheet-final-vigor,
+input.sheet-final-coordinatio,
+input.sheet-final-ingenium,
+input.sheet-final-auctoritas,
+input.sheet-final-ratio,
+input.sheet-final-sensibilitas {
+    background: #ffffff;
+}
+
+
+/* AUTO-CALCULATED / READONLY FIELDS */
+input.sheet-initial-values[readonly],
+input.sheet-sensibilitas[readonly],
+input.sheet-coordinatio[readonly],
+input.sheet-ingenium[readonly],
+input.sheet-vigor[readonly],
+input.sheet-ratio[readonly],
+input.sheet-auctoritas[readonly],
+input.sheet-de-natura[readonly],
+input.sheet-de-magia[readonly],
+input.sheet-de-corpore[readonly],
+input.sheet-de-scientia[readonly],
+input.sheet-de-bello[readonly],
+input.sheet-de-societate[readonly],
+input.sheet-province-modifiers[readonly],
+input.sheet-age-mod-vigor[readonly],
+input.sheet-age-mod-coordinatio[readonly],
+input.sheet-age-mod-ingenium[readonly],
+input.sheet-age-mod-auctoritas[readonly],
+input.sheet-age-mod-ratio[readonly],
+input.sheet-age-mod-sensibilitas[readonly],
+input.sheet-final-vigor[readonly],
+input.sheet-final-coordinatio[readonly],
+input.sheet-final-ingenium[readonly],
+input.sheet-final-auctoritas[readonly],
+input.sheet-final-ratio[readonly],
+input.sheet-final-sensibilitas[readonly] {
+    background: #e8e8e8;
+    color: #333333;
+    border: 1px solid #999999;
+}
+
+/* VIRTUS SPLIT VALIDATION
+   The hidden state field is placed immediately before its Virtus field.
+   Empty split fields do not trigger an error. */
+input.sheet-sensibilitas-split-state[value="error"] + input.sheet-sensibilitas,
+input.sheet-coordinatio-split-state[value="error"] + input.sheet-coordinatio,
+input.sheet-ingenium-split-state[value="error"] + input.sheet-ingenium,
+input.sheet-vigor-split-state[value="error"] + input.sheet-vigor,
+input.sheet-ratio-split-state[value="error"] + input.sheet-ratio,
+input.sheet-auctoritas-split-state[value="error"] + input.sheet-auctoritas {
+    background: #ffb3b3 !important;
+    border: 2px solid #cc4444 !important;
+    color: #1a1a1a !important;
+}
+
+/* CREATION PERITIA MAX VALIDATION */
+
+input.sheet-de-natura-creation-state[value="error"] + input.sheet-de-natura,
+input.sheet-de-magia-creation-state[value="error"] + input.sheet-de-magia,
+input.sheet-de-corpore-creation-state[value="error"] + input.sheet-de-corpore,
+input.sheet-de-scientia-creation-state[value="error"] + input.sheet-de-scientia,
+input.sheet-de-bello-creation-state[value="error"] + input.sheet-de-bello,
+input.sheet-de-societate-creation-state[value="error"] + input.sheet-de-societate {
+    background: #ffb3b3 !important;
+    border: 2px solid #cc4444 !important;
+    color: #1a1a1a !important;
+}
+
+/* CHARACTER TAB OFFICE DROPDOWN */
+select.sheet-character-office {
+    display: inline-block;
+    width: 130px;
+    margin: 3px 0 0 0;
+    height: 28px;
+    box-sizing: border-box;
+    position: relative;
+    left: -4px;
+}
+
+/* Office needs a choice: multiple valid offices and none selected */
+input.sheet-office-state[value="warning"] + select.sheet-character-office {
+    background: #fff3cd !important;
+    border: 2px solid #d6b656 !important;
+    color: #1a1a1a !important;
+}
+
+/* Office had an invalid choice and was reset to '-' */
+input.sheet-office-state[value="error"] + select.sheet-character-office {
+    background: #ffb3b3 !important;
+    border: 2px solid #cc4444 !important;
+    color: #1a1a1a !important;
+}
+
+/* Character tab locked Combat Talent field */
+input[name="attr_combat_skill"][readonly] {
+    background: #e8e8e8;
+    color: #333333;
+    border: 1px solid #999999;
+    cursor: default;
+}
+
+
+/* ASSASSIN COVER OFFICE */
+.sheet-combat input.sheet-combat-skill {
+    width: 160px;
+}
+
+.sheet-cover-office-block {
+    display: none;
+    width: 130px;
+    margin-left: 20px;
+    vertical-align: top;
+    white-space: nowrap;
+    position: relative;
+    top: 2px;
+    text-align: center;
+}
+
+.sheet-character-row-item label.sheet-cover-office-label {
+    display: block;
+    width: 100%;
+    margin: 0 0 4px 0;
+    text-transform: uppercase;
+    font-size: 15px;
+    color: #999999;
+    font-weight: bold;
+    text-align: center;
+}
+
+select.sheet-cover-office {
+    display: block;
+    width: 130px;
+    height: 28px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    position: static;
+    left: auto;
+}
+
+input.sheet-cover-office-visible[value="1"] + .sheet-cover-office-block {
+    display: inline-block;
+}
+
+input.sheet-cover-office-state[value="warning"] + select.sheet-cover-office {
+    background: #fff3cd !important;
+    border: 2px solid #d6b656 !important;
+    color: #1a1a1a !important;
+}
+
+input.sheet-cover-office-state[value="error"] + select.sheet-cover-office {
+    background: #ffb3b3 !important;
+    border: 2px solid #cc4444 !important;
+    color: #1a1a1a !important;
+}
+
+
+/* PERITIA SPECIALTIES - fixed layout */
+.sheet-character-row-item.sheet-peritiae {
+    width: 255px;
+}
+
+.sheet-peritiae > div {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 5px;
+}
+
+.sheet-peritiae select.sheet-specialty-select,
+.sheet-peritiae input.sheet-specialty-custom {
+    width: 160px;
+    height: 26px;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.sheet-peritiae input.sheet-specialty-level {
+    width: 32px !important;
+    min-width: 32px !important;
+    max-width: 32px !important;
+    height: 26px;
+    margin: 0;
+    background: #e8e8e8;
+    color: #333333;
+    border: 1px solid #999999;
+    padding: 0 !important;
+    cursor: default;
+    box-sizing: border-box;
+}
+
+.sheet-peritiae select.sheet-specialty-bonus {
+    width: 38px;
+    height: 26px;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 11px;
+}
+
+.sheet-peritiae input.sheet-character-peritia,
+.sheet-peritiae input.sheet-specialty-level {
+    text-align: center !important;
+    padding: 0 !important;
+
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.sheet-peritiae input.sheet-character-peritia::-webkit-inner-spin-button,
+.sheet-peritiae input.sheet-character-peritia::-webkit-outer-spin-button,
+.sheet-peritiae input.sheet-specialty-level::-webkit-inner-spin-button,
+.sheet-peritiae input.sheet-specialty-level::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/* SPECIALTY CREATION BONUS VALIDATION */
+input.sheet-specialty-bonus-state[value="error"] + select.sheet-specialty-bonus {
+    background: #ffb3b3 !important;
+    border: 2px solid #cc4444 !important;
+    color: #1a1a1a !important;
+}
+
+
+/* COMPACT HIT POINTS */
+.sheet-hp label {
+    width: 100%;
+    font-size: 15px;
+}
+
+.sheet-hp-compact {
+    margin-top: 8px;
+    width: 245px;
+}
+
+.sheet-hp-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.sheet-hp-row label {
+    width: 95px;
+    margin: 0;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #999999;
+    font-weight: bold;
+}
+
+.sheet-hp-row input[type=number] {
+    width: 60px;
+    height: 28px;
+    margin: 0;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.sheet-hp input.sheet-max-hit-points,
+.sheet-hp input.sheet-encumbrance {
+    background: #e8e8e8;
+    color: #333333;
+    border: 1px solid #999999;
+    cursor: default;
+}
+
+.sheet-hp input.sheet-current-hit-points {
+    background: #ffffff;
+}
+
+.sheet-hp input.sheet-hit-points-heal {
+    width: 16px;
+    margin: 0;
+}
+
+.sheet-hp input.sheet-max-hit-points,
+.sheet-hp input.sheet-current-hit-points,
+.sheet-hp input.sheet-encumbrance {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.sheet-hp input.sheet-max-hit-points::-webkit-inner-spin-button,
+.sheet-hp input.sheet-max-hit-points::-webkit-outer-spin-button,
+.sheet-hp input.sheet-current-hit-points::-webkit-inner-spin-button,
+.sheet-hp input.sheet-current-hit-points::-webkit-outer-spin-button,
+.sheet-hp input.sheet-encumbrance::-webkit-inner-spin-button,
+.sheet-hp input.sheet-encumbrance::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* ENCUMBRANCE WARNING STATES */
+
+input.sheet-encumbrance-state[value="warning"] + input.sheet-encumbrance {
+    background: #fff3cd !important;
+    border: 2px solid #d6b656 !important;
+    color: #1a1a1a !important;
+}
+
+input.sheet-encumbrance-state[value="danger"] + input.sheet-encumbrance {
+    background: #ffb3b3 !important;
+    border: 2px solid #cc4444 !important;
+    color: #1a1a1a !important;
+}
+
+/* COMPACT PIETAS */
+.sheet-pietas-compact {
+    margin-top: 8px;
+    width: 245px;
+}
+
+.sheet-pietas-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.sheet-pietas-row label {
+    width: 95px;
+    margin: 0;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #999999;
+    font-weight: bold;
+}
+
+.sheet-pietas-row input[type=number] {
+    width: 60px;
+    height: 28px;
+    margin: 0;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.sheet-pietas-compact input.sheet-max-pietas {
+    background: #e8e8e8;
+    color: #333333;
+    border: 1px solid #999999;
+    cursor: default;
+}
+
+.sheet-pietas-compact input.sheet-current-pietas {
+    background: #ffffff;
+}
+
+.sheet-pietas-compact input.sheet-max-pietas,
+.sheet-pietas-compact input.sheet-current-pietas {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.sheet-pietas-compact input.sheet-max-pietas::-webkit-inner-spin-button,
+.sheet-pietas-compact input.sheet-max-pietas::-webkit-outer-spin-button,
+.sheet-pietas-compact input.sheet-current-pietas::-webkit-inner-spin-button,
+.sheet-pietas-compact input.sheet-current-pietas::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* DIVINE INVOCATIONS */
+.sheet-invocations-compact {
+    width: 220px;
+}
+
+.sheet-invocation-select {
+    width: 220px;
+    height: 28px;
+    margin: 0 0 5px 0;
+    box-sizing: border-box;
+}
+
+input.sheet-exp-multiplier-state[value="error"] + input.sheet-exp-multiplier {
+    background: #ffb3b3 !important;
+    border: 2px solid #cc4444 !important;
+    color: #1a1a1a !important;
+}
+
+.sheet-exp-multiplier {
+    -moz-appearance: textfield;
+    appearance: textfield;
+    text-align: center;
+				 
+}
+
+.sheet-exp-multiplier::-webkit-inner-spin-button,
+.sheet-exp-multiplier::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.sheet-exp {
+    -moz-appearance: textfield;
+    appearance: textfield;
+    text-align: center;
+}
+
+.sheet-exp::-webkit-inner-spin-button,
+.sheet-exp::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* INVOCATION VALIDATION */
+input.sheet-invocation-state[value="error"] + select.sheet-invocation-select {
+    background: #ffb3b3 !important;
+    border: 2px solid #cc4444 !important;
+    color: #1a1a1a !important;
+}
+
+/* INVOCATION LOCKED */
+input.sheet-invocation-state[value="locked"] + select.sheet-invocation-select {
+    pointer-events: none;
+    opacity: 0.45;
+    background: #e8e8e8 !important;
+    border: 1px solid #999999 !important;
+    color: #777777 !important;
+    cursor: not-allowed;
+}
+
+.sheet-mos-benefits-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    width: 375px;
+    margin: 0 auto;
+}
+
+.sheet-mos-benefit-select {
+    width: 150px;
+    height: 28px;
+    box-sizing: border-box;
+}
+
+/* MOS ARCANORUM BENEFIT VALIDATION */
+input.sheet-mos-benefit-state[value="locked"] + select.sheet-mos-benefit-select {
+    pointer-events: none;
+    opacity: 0.45;
+    background: #e8e8e8 !important;
+    border: 1px solid #999999 !important;
+    color: #777777 !important;
+    cursor: not-allowed;
+}
+
+input.sheet-mos-benefit-state[value="error"] + select.sheet-mos-benefit-select {
+    background: #ffb3b3 !important;
+    border: 2px solid #cc4444 !important;
+    color: #1a1a1a !important;
+}
+.sheet-assistant-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    width: 375px;
+    margin: 0 auto;
+}
+
+.sheet-assistant-select {
+    width: 183px;
+    height: 28px;
+    box-sizing: border-box;
+}
+
+input.sheet-assistant-state[value="locked"] + select.sheet-assistant-select {
+    pointer-events: none;
+    opacity: 0.45;
+    background: #e8e8e8 !important;
+    border: 1px solid #999999 !important;
+    color: #777777 !important;
+    cursor: not-allowed;
+}
+input.sheet-assistant-state[value="error"] + select.sheet-assistant-select {
+    background: #ffb3b3 !important;
+    border: 2px solid #cc4444 !important;
+    color: #1a1a1a !important;
+}
+
+input.sheet-tempered-state[value="warning"] + input.sheet-tempered-checkbox,
+input.sheet-reinforced-armor-state[value="warning"] + input.sheet-reinforced-armor-checkbox,
+input.sheet-reinforced-shield-state[value="warning"] + input.sheet-reinforced-shield-checkbox {
+    outline: 2px solid #d6b656;
+}
+
+input.sheet-tempered-state[value="error"] + input.sheet-tempered-checkbox,
+input.sheet-reinforced-armor-state[value="error"] + input.sheet-reinforced-armor-checkbox,
+input.sheet-reinforced-shield-state[value="error"] + input.sheet-reinforced-shield-checkbox {
+    outline: 2px solid #cc4444;
+}
+
+
+/* ADVANCEMENT */
+
+.sheet-advancement-block {
+    width: 780px;
+}
+
+.sheet-advancement-block h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: normal;
+}
+
+.sheet-advancement-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 18px;
+    row-gap: 10px;
+}
+
+.sheet-adv-category {
+    width: 100%;
+}
+
+.sheet-adv-row {
+    display: grid;
+    grid-template-columns: 1fr 55px;
+    gap: 5px;
+    align-items: center;
+    margin-bottom: 1px;
+    min-height: 25px;
+}
+
+.sheet-adv-row span {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding-left: 4px;
+    position: relative;
+    top: -3px;
+}
+
+.sheet-adv-peritia {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.sheet-adv-specialty {
+    padding-left: 12px;
+    font-size: 12px;
+    margin-bottom: 1px;
+    color:#555;
+}
+
+.sheet-adv-select {
+    width: 55px;
+    height: 26px;
+    box-sizing: border-box;
+}
+
+input.sheet-adv-visible[value="0"] + .sheet-adv-specialty {
+    display: none;
+}
+
+input.sheet-adv-visible[value="1"] + .sheet-adv-specialty {
+    display: grid;
+}
+
+.sheet-adv-category {
+    align-self: start;
+}
+
+input.sheet-exp-left-state[value="error"] + input.sheet-exp {
+    background: #ffb3b3 !important;
+    border: 2px solid #cc4444 !important;
+    color: #1a1a1a !important;
+}
+
+/* SECTION TITLE SEPARATORS */
+
+.sheet-section-character-notes h1,
+.sheet-advancement-block h1,
+.sheet-character-notes-row-item h1 {
+    border-bottom: 2px solid #777;
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+}
+
+.sheet-roll-value-wrap {
+    position: relative;
+    display: inline-block;
+}
+
+.sheet-invisible-roll-button {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 10;
+}
+
+input.sheet-specialty-roll-visible[value="0"] + .sheet-roll-value-wrap .sheet-invisible-roll-button {
+    display: none;
+}
+
+input.sheet-specialty-roll-visible[value="1"] + .sheet-roll-value-wrap .sheet-invisible-roll-button {
+    display: block;
+}
+
+.sheet-weapon-roll-wrap {
+    position: relative;
+    display: inline-block;
+}
+
+.sheet-weapon-roll-label {
+    cursor: default;
+}
+
+input.sheet-weapon-roll-state[value="ok"] + .sheet-weapon-roll-wrap .sheet-weapon-roll-label {
+    cursor: pointer;
+}
+input.sheet-weapon-roll-state[value="locked"] + .sheet-weapon-roll-wrap .sheet-invisible-roll-button {
+    display: none;
+}
+
+input.sheet-weapon-roll-state[value="ok"] + .sheet-weapon-roll-wrap .sheet-invisible-roll-button {
+    display: block;
+}
+
+.sheet-text-action-button {
+    border: 0;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+}
+
+.sheet-damage-roll-wrap {
+    position: relative;
+    display: inline-block;
+}
+
+input.sheet-damage-roll-state[value="locked"] + .sheet-damage-roll-wrap .sheet-invisible-roll-button {
+    display: none;
+}
+
+input.sheet-damage-roll-state[value="ok"] + .sheet-damage-roll-wrap .sheet-invisible-roll-button {
+    display: block;
+}
+
+.sheet-armor-defense-roll-wrap {
+    position: relative;
+    display: inline-block;
+}
+
+.sheet-armor-defense-roll-label {
+    cursor: default;
+}
+
+input.sheet-armor-defense-roll-state[value="locked"] + .sheet-armor-defense-roll-wrap .sheet-invisible-roll-button {
+    display: none;
+}
+
+input.sheet-armor-defense-roll-state[value="ok"] + .sheet-armor-defense-roll-wrap .sheet-invisible-roll-button {
+    display: block;
+}
+
+input.sheet-armor-defense-roll-state[value="ok"] + .sheet-armor-defense-roll-wrap .sheet-armor-defense-roll-label {
+    cursor: pointer;
+}
+
+.sheet-peritiae-header {
+    position: relative;
+    display: inline-block;
+}
+
+.sheet-peritiae-header-wrap {
+    position: relative;
+    display: inline-block;
+}
+
+.sheet-specialty-warning {
+    display: none;
+    position: absolute;
+    right: -25px;
+    top: 0px;
+    color: #d6b656;
+}
+
+@keyframes sheet-warning-pulse {
+    0% { opacity: 0.35; }
+    50% { opacity: 1; }
+    100% { opacity: 0.35; }
+}
+
+input.sheet-specialty-bonus-complete[value="warning"] + .sheet-specialty-warning {
+    display: inline-block;
+    animation: sheet-warning-pulse 1.5s infinite;
+}
+
+.sheet-peritia-roll-icon {
+    position: relative;
+    top: 3px;
+}
+
+.sheet-virtus-roll-wrap {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+}
+
+.sheet-virtus-roll-icon {
+    position: absolute;
+    font-size: 3.2em;
+    opacity: 0.38;
+    line-height: 1;
+    pointer-events: none;
+}
+
+.sheet-virtus-roll-value {
+    position: relative;
+    z-index: 2;
+    background: transparent !important;
+    border: none !important;
+    width: 42px !important;
+    min-width: 42px !important;
+    max-width: 42px !important;
+    height: 24px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    text-align: center;
+}
+
+.sheet-invocation-tooltip-wrap {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.sheet-invocation-info-icon {
+    display: none;
+    position: relative;
+    cursor: help;
+    font-size: 14px;
+}
+
+input.sheet-invocation-info-visible[value="1"] + .sheet-invocation-info-icon {
+    display: inline-block;
+}
+
+.sheet-invocation-tooltip-text {
+    display: none;
+    position: absolute;
+    left: 18px;
+    top: -4px;
+    min-width: 250px;
+    max-width: 350px;
+    padding: 6px;
+    background: #111;
+    color: #fff;
+    border: 1px solid #777;
+    border-radius: 4px;
+    z-index: 9999;
+    white-space: pre-line;
+    text-align: left;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    word-wrap: break-word;
+    box-sizing: border-box;
+}
+
+.sheet-invocation-info-icon:hover .sheet-invocation-tooltip-text {
+    display: block;
+}
+
+.sheet-divine-protection-info {
+    position: relative;
+    cursor: help;
+    font-size: 14px;
+}
+
+.sheet-divine-protection-info:hover .sheet-invocation-tooltip-text {
+    display: block;
+}
+
+.sheet-combat-skill-wrap {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    top:-20px;
+}
+
+.sheet-combat-skill-info {
+    position: relative;
+    cursor: help;
+    font-size: 14px;
+}
+
+.sheet-combat-skill-info:hover .sheet-invocation-tooltip-text {
+    display: block;
+}
+
+button.sheet-set-standard-values {
+    position: absolute;
+    top:156px;
+    /*top: 173px;   /* 137 + kb. 36 */
+    left: 95px;   /* ugyanoda mint a Roll */
+    width: 40px;
+    height: 32px;
+    padding: 0;
+    border: 1px solid #333333;
+    border-radius: 4px;
+    background: #e2ded9;
+    color: #1a1a1a;
+    font-weight: bold;
+    font-size: 11px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+button.sheet-set-standard-values:hover {
+    background: #d5cec6;
+}
+
+.sheet-combat-skill-block {
+    display: inline-block;
+    width: 180px;
+    text-align: center;
+    vertical-align: top;
+}
+
+.sheet-combat-skill-block > label.sheet-combat-skill {
+    display: block;
+    width: 180px;
+    text-align: center;
+    margin: 0 0 4px 0;
+}
+
+.sheet-combat-skill-wrap {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    top: -20px;
+    width: 180px;
+}
+
+.sheet-resistance-roll-block {
+    display: inline-block;
+    width: 110px;
+    margin-left: 20px;
+    vertical-align: top;
+    white-space: nowrap;
+    position: relative;
+    top: 2px;
+    text-align: center;
+}
+
+.sheet-resistance-roll-block label {
+    display: block;
+    width: 100%;
+    margin: 0 0 4px 0;
+    text-transform: uppercase;
+    font-size: 15px;
+    color: #999999;
+    font-weight: bold;
+    text-align: center;
+}
+
+.sheet-resistance-roll-button {
+    width: 70px;
+    height: 28px;
+    box-sizing: border-box;
+    display: block;
+    margin: 0 auto;
+}
+
+/*Benefit tooltip*/
+
+.sheet-benefit-wrap {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    width: 183px;
+}
+
+.sheet-mos-benefit-select {
+    width: 150px;
+    height: 28px;
+    box-sizing: border-box;
+}
+
+.sheet-benefit-info {
+    display: none;
+    position: relative;
+    cursor: help;
+    font-size: 14px;
+    color: #444;
+    top: -5px;
+}
+
+.sheet-benefit-info-visible[value="1"] + .sheet-benefit-info {
+    display: inline-block;
+}
+
+.sheet-benefit-info-visible[value="0"] + .sheet-benefit-info {
+    display: none;
+}
+
+.sheet-benefit-info:hover .sheet-invocation-tooltip-text {
+    display: block;
+}

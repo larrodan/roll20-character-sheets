@@ -1,0 +1,9 @@
+{
+    "html": "lex_arcana.html",
+    "css": "lex_arcana.css",
+    "authors": "Tamas B. ,original sheet from Eugenio Pombi",
+    "roll20userid": "784739",
+    "preview": "lex_arcana-sheet.png",
+    "instructions": "Lex Arcana 2nd Edition Character Sheet for Roll20, Features: Complete character creation support, Automatic CP / XP calculations, Weapon, Armor and Shield management, Encumbrance tracking, Expertus validation, Fate Roll support (5 explodes), Weapon Attack rolls, Weapon Damage rolls, Armor Defense rolls",
+	"legacy": "false"
+}
